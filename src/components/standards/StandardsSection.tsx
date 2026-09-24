@@ -1,0 +1,6 @@
+import { BookOpen, ShieldCheck } from "lucide-react";
+import { Standard } from "../../types";
+
+export const StandardsSection = ({ title, standards }: { title: string; standards: Standard[] }) => (
+  <section className="overflow-hidden rounded-xl border border-border bg-surface"><div className="flex items-center gap-2 border-b border-border bg-surface2/60 px-5 py-4"><BookOpen className="h-4 w-4 text-accent" /><h3 className="font-mono text-[10px] uppercase tracking-[0.16em] text-text-secondary">{title}</h3><span className="ml-auto font-mono text-[9px] text-text-muted">{standards.length} references</span></div><div className="divide-y divide-border/70">{standards.map((standard) => <div key={standard.code} className="grid gap-3 px-5 py-4 sm:grid-cols-[150px_1fr_190px] sm:items-center"><div className="font-mono text-xs font-medium text-text-primary">{standard.code}</div><div><div className="text-sm text-text-secondary">{standard.full_name}</div><div className="mt-1 text-[10px] text-text-muted">Applicable to: {standard.applicable_to}</div></div><div className="text-left sm:text-right"><div className="font-mono text-[9px] uppercase tracking-wider text-text-muted">{standard.authority}</div><div className="mt-2 inline-flex items-center gap-1.5 text-[10px] text-status-safe"><ShieldCheck className="h-3 w-3" /> Reference only</div></div></div>)}</div></section>
+);
